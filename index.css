@@ -26,7 +26,7 @@ body {
 }
 
 .container-top {
-    width: 100%; /* Can be in percentage also. */
+    width: 100%;
     height: 100%;
     margin: 0 auto;
     margin-left: 25%;
@@ -35,21 +35,66 @@ body {
 }
 
 .top-menu a {
-float: left;
-position: relative;
-width: 120px;
-height: 20%;
-color: #f2f2f2;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-border-style: solid;
-border-width: 1px;
-margin-left: 40px;
+    float: left;
+    position: relative;
+    width: 120px;
+    height: 20%;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 40px;
 }
 
 .top-menu a:hover {
 background-color: #ddd;
 color: black;
+}
+
+.net-gp {
+    background-color: #cfeaff;
+    margin-top: 150px;
+    width: 100%;
+    height: 300px;
+    border-radius: 90px;
+}
+
+.event-info {
+    float: left;
+    width: 35%;
+    height: 40%;
+    /*background-color: blue;*/
+    font-family: Verdana;
+    font-size: 23px;
+    text-align: center;
+}
+
+.info-text {
+    position: inherit;
+    padding-top: 23px;
+}
+
+.track-image {
+    float: left;
+    width: 500px;
+    height: 100%;
+    /*background-color: green;*/
+}
+
+.track-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.country-name {
+    float: left;
+    width: 35%;
+    height: 40%;
+    /*background-color: orange;*/
+    font-family: Verdana;
+    font-size: 23px;
+    text-align: center;
 }
