@@ -23,6 +23,13 @@ async function fetchNextRace(){
     nextEventDate = data.data["closes_date"];
 }
 
+async function getStanding () {
+    let url = "https://ergast.com/api/f1/current/driverStandings.json";
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data["MRData"]["StandingsTable"]['StandingsLists'][0]['DriverStandings'] );
+}
+
 function countDown() {
     let today = new Date();
     today.setMonth(today.getMonth() + 1)
@@ -46,3 +53,4 @@ function countDown() {
 
 setInterval(countDown, 1000)
 fetchNextRace();
+getStanding();
