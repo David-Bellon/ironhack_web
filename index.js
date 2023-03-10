@@ -23,11 +23,85 @@ async function fetchNextRace(){
     nextEventDate = data.data["closes_date"];
 }
 
-async function getStanding () {
+async function getDriverStanding () {
+    let standings = document.getElementById("driver-standing");
     let url = "https://ergast.com/api/f1/current/driverStandings.json";
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data["MRData"]["StandingsTable"]['StandingsLists'][0]['DriverStandings'] );
+    let drivers = data["MRData"]["StandingsTable"]['StandingsLists'][0]['DriverStandings'];
+    for (var i=0; i<drivers.length; i++){
+        let driverInfo = document.createElement("div");
+        driverInfo.className = "driver-info";
+        let driverPos = document.createElement("div");
+        driverPos.className = "driver-pos";
+        let textPos = document.createElement("p");
+        textPos.innerHTML = drivers[i]["position"] + "º";
+        driverPos.appendChild(textPos);
+        driverInfo.appendChild(driverPos);
+        standings.appendChild(driverInfo);
+
+        let driverName = document.createElement("div");
+        driverName.className = "driver-name";
+        let textName = document.createElement("p");
+        textName.innerHTML = drivers[i]["Driver"]["givenName"] + " " + drivers[i]["Driver"]["familyName"];
+        driverName.appendChild(textName);
+        driverInfo.appendChild(driverName);
+
+        let driverNumber = document.createElement("div");
+        driverNumber.className = "driver-number";
+        let textNumber = document.createElement("p");
+        textNumber.innerHTML = drivers[i]["Driver"]["permanentNumber"];
+        driverNumber.appendChild(textNumber);
+        driverInfo.appendChild(driverNumber);
+
+        let driverPts = document.createElement("div");
+        driverPts.className = "driver-pts"
+        let testPts = document.createElement("p");
+        testPts.innerHTML = drivers[i]["points"] + " pts";
+        driverPts.appendChild(testPts);
+        driverInfo.appendChild(driverPts);
+    }
+}
+
+async function getConstrStanding () {
+    let standings = document.getElementById("teams-standing");
+    let url = "https://ergast.com/api/f1/current/constructorStandings.json";
+    let response = await fetch(url);
+    let data = await response.json();
+    let teams = data["MRData"]["StandingsTable"]['StandingsLists'][0]["ConstructorStandings"];
+    console.log(teams[0]);
+    for (var i=0; i<teams.length; i++) {
+        let teamInfo = document.createElement("div");
+        teamInfo.className = "driver-info";
+        let teamPos = document.createElement("div");
+        teamPos.className = "driver-pos";
+        let textPos = document.createElement("p");
+        textPos.innerHTML = teams[i]["position"] + "º";
+        teamPos.appendChild(textPos);
+        teamInfo.appendChild(teamPos);
+        standings.appendChild(teamInfo);
+
+        let teamName = document.createElement("div");
+        teamName.className = "driver-name";
+        let textName = document.createElement("p");
+        textName.innerHTML = teams[i]["Constructor"]["name"];
+        teamName.appendChild(textName);
+        teamInfo.appendChild(teamName);
+
+        let teamWins = document.createElement("div");
+        teamWins.className = "driver-number";
+        let textNumber = document.createElement("p");
+        textNumber.innerHTML = teams[i]["wins"];
+        teamWins.appendChild(textNumber);
+        teamInfo.appendChild(teamWins);
+
+        let teamPts = document.createElement("div");
+        teamPts.className = "driver-pts"
+        let testPts = document.createElement("p");
+        testPts.innerHTML = teams[i]["points"] + " pts";
+        teamPts.appendChild(testPts);
+        teamInfo.appendChild(teamPts);
+    }
 }
 
 function countDown() {
@@ -53,4 +127,5 @@ function countDown() {
 
 setInterval(countDown, 1000)
 fetchNextRace();
-getStanding();
+getDriverStanding();
+getConstrStanding();

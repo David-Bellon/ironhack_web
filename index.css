@@ -161,7 +161,7 @@ color: black;
 .standings .current-standing {
     float: left;
     width: 40%;
-    height: 80%;
+    height: 130%;
     background-color: white;
     margin-left: 100px;
     border-style: solid;
@@ -230,4 +230,8 @@ hr {
     width: 20%;
     height: 100%;
     margin-left: 15px;
+}
+
+#teams-standing {
+    height: 75%;
 }
