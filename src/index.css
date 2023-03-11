@@ -4,7 +4,7 @@ body {
 
 @font-face {
     font-family: 'formula1';
-    src: URL('font/Formula1-Regular.ttf') format("truetype");
+    src: URL('../font/Formula1-Regular.ttf') format("truetype");
 }
 
 .top-menu {
