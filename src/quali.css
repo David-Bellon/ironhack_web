@@ -62,7 +62,24 @@ body {
 
 .driver-select {
     width: 100%;
-    height: 200px;
+    height: 550px;
     margin-top: 150px;
-    background-color: #cfeaff;
+    background-color: white;
+    border-radius: 40px;
+}
+
+.driver-select .driver-self {
+    float: left;
+    margin-left: 7%;
+    margin-top: 2%;
+    width: 120px;
+    height: 120px;
+    border-color: red;
+    border-style: solid;
+    text-align: center;
+}
+
+.driver-self img {
+    width: 100%;
+    height: 100%;
 }
