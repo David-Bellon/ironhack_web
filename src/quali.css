@@ -60,10 +60,18 @@ body {
     color: black;
 }
 
+.text-driver-select {
+    margin-top: 140px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: formula1;
+    font-size: 30px;
+    color: white;
+}
+
 .driver-select {
     width: 100%;
     height: 550px;
-    margin-top: 150px;
     background-color: white;
     border-radius: 40px;
 }
@@ -77,9 +85,52 @@ body {
     border-color: red;
     border-style: solid;
     text-align: center;
+    transition: background-color 200ms;
 }
 
 .driver-self img {
     width: 100%;
     height: 100%;
+}
+
+.driver-self img:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.text-session-select {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: formula1;
+    font-size: 30px;
+    color: white;
+}
+
+.session-select {
+    width: 100%;
+    margin-top: 20px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.session-select .session-self {
+    float: left;
+    width: 150px;
+    height: 100%;
+    margin-left: 90px;
+    text-align: center;
+    font-family: formula1;
+    background-color: white;
+    font-size: 30px;
+    color: black;
+    border-radius: 50px;
+}
+
+.session-self:hover {
+    cursor: pointer;
+}
+
+.session-self p {
+    margin-top: 35%;
 }

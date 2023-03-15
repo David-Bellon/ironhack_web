@@ -1,5 +1,7 @@
 let circuit;
-let selected = [];
+let driverSelected = [];
+let sessions = document.getElementsByClassName("session-self")
+let sessionSelected = null;
 function getParam () {
     var param = window.location.href.substring(1).split("?");
     circuit = param[1];
@@ -14,13 +16,13 @@ function createDrivers () {
         driver.onclick = function () {
             if (this.style.background == "white"){
                 this.style.background = "grey";
-                selected.push(this);
+                driverSelected.push(this);
             }
             else {
                 this.style.background = "white";
-                var index = selected.indexOf(this);
+                var index = driverSelected.indexOf(this);
                 if (index > -1){
-                    selected.splice(index, 1);
+                   driverSelected.splice(index, 1);
                 }
             }
         };
@@ -31,4 +33,31 @@ function createDrivers () {
         driversBox.appendChild(driver);
     }
 }
+function selectSession () {
+    for (var i=0; i<sessions.length; i++) {
+        sessions[i].style.backgroundColor = "white";
+        sessions[i].onclick = function () {
+            if (this.style.backgroundColor == "white") {
+                this.style.backgroundColor = "black";
+                this.style.color = "white";
+                if (sessionSelected == null) {
+                    sessionSelected = this;
+                }
+                else {
+                    sessionSelected.style.background = "white";
+                    sessionSelected.style.color = "black";
+                    sessionSelected = this;
+                }
+            }
+            else {
+                this.style.backgroundColor = "white";
+                this.style.color = "black";
+                sessionSelected = null;
+            }
+            console.log(sessionSelected);
+        }
+    }
+}
+
+selectSession();
 createDrivers();
