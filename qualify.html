@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel='stylesheet' type='text/css' media='screen' href='src/quali.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body onload="getParam()">
 <div class="top-menu">
@@ -48,6 +49,10 @@
     <div class="session-self" id="r">
         <p>R</p>
     </div>
+</div>
+<button type="button" id="laps-button" onclick="buttonClicked()">Get Laps</button>
+<div class="error-box" id="error">
+    Please Select two or less drivers and a Session
 </div>
 </body>
 <script src='src/quali.js'></script>

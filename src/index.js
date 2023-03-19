@@ -108,7 +108,7 @@ function countDown() {
     let today = new Date();
     today.setMonth(today.getMonth() + 1)
     let eventDate = new Date(nextEventDate.split(" ")[0].split("-")[0], nextEventDate.split(" ")[0].split("-")[1],
-        nextEventDate.split(" ")[0].split("-")[2], nextEventDate.split(" ")[1].split(":")[0],
+        nextEventDate.split(" ")[0].split("-")[2], nextEventDate.split(" ")[1].split(":")[0] - 2,
         nextEventDate.split(" ")[1].split(":")[1], nextEventDate.split(" ")[1].split(":")[2]);
     let difference = Math.abs(eventDate - today);
     let daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24))
@@ -119,10 +119,18 @@ function countDown() {
     let hours = document.getElementById("hours")
     let minutes = document.getElementById("minutes")
     let seconds = document.getElementById("seconds")
-    days.innerHTML = String(daysLeft) + " DAYS";
-    hours.innerHTML = String(hoursLeft) +  " HOURS";
-    minutes.innerHTML = String(minutesLeft) + " MINUTES";
-    seconds.innerHTML = String(secondsLeft) + " SECONDS";
+    if ((eventDate - today) < 0) {
+        days.innerHTML = 0 + " DAYS";
+        hours.innerHTML = 0 +  " HOURS";
+        minutes.innerHTML = 0 + " MINUTES";
+        seconds.innerHTML = 0 + " SECONDS";
+    }
+    else {
+        days.innerHTML = String(daysLeft) + " DAYS";
+        hours.innerHTML = String(hoursLeft) +  " HOURS";
+        minutes.innerHTML = String(minutesLeft) + " MINUTES";
+        seconds.innerHTML = String(secondsLeft) + " SECONDS";
+    }
 }
 
 setInterval(countDown, 1000)

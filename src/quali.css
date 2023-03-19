@@ -134,3 +134,37 @@ body {
 .session-self p {
     margin-top: 35%;
 }
+
+#laps-button {
+    width: 250px;
+    height: 100px;
+    font-size: 24px;
+    font-family: formula1;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-left: 42%;
+    margin-top: 30px;
+}
+
+#laps-button:active {
+    background-color: #c5c5c5;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.error-box {
+    width: 600px;
+    height: 15px;
+    margin-left: 35%;
+    margin-top: 15px;
+    font-family: formula1;
+    font-size: 20px;
+    color: white;
+    visibility: hidden;
+}

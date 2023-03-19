@@ -54,8 +54,34 @@ function selectSession () {
                 this.style.color = "black";
                 sessionSelected = null;
             }
-            console.log(sessionSelected);
         }
+    }
+}
+
+async function buttonClicked () {
+    console.log(driverSelected);
+    console.log(sessionSelected);
+    let url = "http://127.0.0.1:5000/Laps";
+    error = document.getElementById("error")
+    if (driverSelected.length == 0 || driverSelected.length > 2 || sessionSelected == null) {
+        error.style.visibility = "visible";
+        setTimeout(function (){
+            error.style.visibility = "hidden";
+        }, 1000)
+    }
+    else{
+        let data = {};
+        for (let i=0; i<driverSelected.length; i++) {
+            data[i] = String(driverSelected[i].id);
+        }
+        data["session"] = String(sessionSelected.id);
+        fetch(url, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        }).then(res => {
+            console.log(res);
+        });
     }
 }
 
