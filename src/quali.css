@@ -168,3 +168,122 @@ body {
     color: white;
     visibility: hidden;
 }
+
+.driver-laps-cont {
+    width: 100%;
+    height: 1000px;
+    display: none;
+}
+
+.driver-laps-cont .driver-laps {
+    float: left;
+    width: 50%;
+    height: 1600px;
+    background-color: white;
+    margin-top: 3%;
+    margin-left: 2%;
+    border-style: solid;
+    border-radius: 30px;
+}
+
+.driver-laps-cont .driver-laps .driver-name {
+    width: 100%;
+    height: 35px;
+    background-color: orange;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.driver-laps-cont .driver-laps .driver-name p {
+    font-size: 17px;
+    font-family: formula1;
+    color: white;
+    padding-top: 8px;
+}
+
+hr {
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 3px;
+    border: none;
+    background-color: black;
+    margin-bottom: 10px;
+}
+
+.lap-data {
+    width: 97%;
+    height: 50px;
+    margin-left: 1%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 1px;
+}
+
+.number-lap {
+    float: left;
+    width: 5%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.lap-time {
+    float: left;
+    width: 30%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.s1 {
+    float: left;
+    width: 12%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.s2 {
+    float: left;
+    width: 12%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.s3 {
+    float: left;
+    width: 12%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.comp {
+    float: left;
+    width: 5%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.stint {
+    float: left;
+    width: 5%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.tyre-life {
+    float: left;
+    width: 5%;
+    height: 100%;
+    margin-left: 15px;
+}
+
+.lap-data p {
+    text-align: center;
+    font-size: 15px;
+    font-family: formula1;
+    color: black;
+}
+
+.lap-data img {
+    width: 100%;
+    height: 100%;
+}
