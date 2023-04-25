@@ -59,8 +59,6 @@ function selectSession () {
 }
 
 async function buttonClicked () {
-    console.log(driverSelected);
-    console.log(sessionSelected);
     let url = "http://127.0.0.1:5000/Laps";
     error = document.getElementById("error")
     if (driverSelected.length == 0 || driverSelected.length > 2 || sessionSelected == null) {
@@ -82,19 +80,22 @@ async function buttonClicked () {
         }).then(res => {
             return res.json();
         }).then(cas => {
-            console.log(cas.data);
-            createTable(cas.data);
+            for (var i=0; i<cas.data.length; i++) {
+                createTable(cas.data[i], i);
+                console.log("hey");
+            }
         });
     }
 }
 
-async function createTable(data) {
-    let newHeight = 75*data["LapNumber"].length;
+async function createTable(data, number) {
+    let newHeight = 75*data["LapNumber"].length + 30;
     console.log(newHeight);
     let driverLapsCont = document.getElementById("laps-box");
     driverLapsCont.style.display = "block";
     let driverLaps = document.createElement("div");
     driverLaps.className = "driver-laps";
+    driverLaps.id = "driver" + String(number);
     driverLaps.style.height = String(newHeight) + "px";
     driverLapsCont.appendChild(driverLaps);
 
@@ -102,8 +103,21 @@ async function createTable(data) {
     name.className = "driver-name";
     let pName = document.createElement("p");
     pName.innerHTML = data["Driver"][0];
+    pName.style.color = "black";
+    let hr = document.createElement("hr");
     name.appendChild(pName);
-    driverLaps.appendChild(name)
+    driverLaps.appendChild(name);
+    driverLaps.appendChild(hr);
+    if (number == 1) {
+        let headerInfo = document.getElementById("headerInfo1");
+        headerInfo.style.display = "block";
+        driverLaps.appendChild(headerInfo);
+    }
+    else {
+        let headerInfo = document.getElementById("headerInfo2");
+        headerInfo.style.display = "block";
+        driverLaps.appendChild(headerInfo);
+    }
 
     for (var i=0; i<data["LapNumber"].length; i++) {
         let dataBox = document.createElement("div");
@@ -119,7 +133,12 @@ async function createTable(data) {
         let lapTime = document.createElement("div");
         lapTime.className = "lap-time";
         let pLapTime = document.createElement("p");
-        pLapTime.innerHTML = data["LapTime"][i];
+        let secondsLap = parseFloat(data["LapTime"][i]);
+        let minutes = Math.floor(secondsLap / 60);
+        let seconds = Math.floor((secondsLap / 60 - minutes) * 60);
+        let mili = Math.floor(((secondsLap / 60 - minutes) * 60 - seconds) * 1000);
+        secondsLap = String(minutes) + ":" + String(seconds) + ":" + String(mili);
+        pLapTime.innerHTML = secondsLap;
         lapTime.appendChild(pLapTime);
         dataBox.appendChild(lapTime);
 
@@ -131,14 +150,14 @@ async function createTable(data) {
         dataBox.appendChild(s1);
 
         let s2 = document.createElement("div");
-        s2.className = "s1";
+        s2.className = "s2";
         let pS2 = document.createElement("p");
         pS2.innerHTML = data["Sector2Time"][i];
         s2.appendChild(pS2);
         dataBox.appendChild(s2);
 
         let s3 = document.createElement("div");
-        s3.className = "s1";
+        s3.className = "s3";
         let pS3 = document.createElement("p");
         pS3.innerHTML = data["Sector3Time"][i];
         s3.appendChild(pS3);
