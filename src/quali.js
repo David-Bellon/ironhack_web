@@ -59,7 +59,7 @@ function selectSession () {
 }
 
 async function buttonClicked () {
-    let url = "https://salmon-field-0db25fb03.3.azurestaticapps.net";
+    let url = "https://formula1-response.azurewebsites.net/Laps";
     error = document.getElementById("error")
     if (driverSelected.length == 0 || driverSelected.length > 2 || sessionSelected == null) {
         error.style.visibility = "visible";

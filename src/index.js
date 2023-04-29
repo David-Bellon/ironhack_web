@@ -10,7 +10,7 @@ async function fetchNextRace(){
     let fp3 = document.getElementById("fp3")
     let q = document.getElementById("q")
     let r = document.getElementById("r")
-    let url = "https://salmon-field-0db25fb03.3.azurestaticapps.net/Schedule";
+    let url = "https://formula1-response.azurewebsites.net/Schedule";
     let response = await fetch(url);
     let data = await response.json();
     gp_name.innerHTML = "Next GP: " + data.data["name"];
