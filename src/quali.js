@@ -59,7 +59,7 @@ function selectSession () {
 }
 
 async function buttonClicked () {
-    let url = "http://127.0.0.1:5000/Laps";
+    let url = "https://salmon-field-0db25fb03.3.azurestaticapps.net";
     error = document.getElementById("error")
     if (driverSelected.length == 0 || driverSelected.length > 2 || sessionSelected == null) {
         error.style.visibility = "visible";
