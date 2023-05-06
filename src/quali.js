@@ -63,7 +63,7 @@ function selectSession () {
 }
 
 async function buttonClicked () {
-    let url = "http://127.0.0.1:5000/Laps";
+    let url = "https://formula1-response.azurewebsites.net/Laps";
     alreadyDrivers = document.getElementById("laps-box");
     if (alreadyDrivers.children.length != 0) {
         while (alreadyDrivers.firstElementChild != null){
