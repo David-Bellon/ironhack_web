@@ -2,6 +2,10 @@ let circuit;
 let driverSelected = [];
 let sessions = document.getElementsByClassName("session-self")
 let sessionSelected = null;
+let headerInfo1 = document.getElementById("headerInfo1")
+let headerInfo2 = document.getElementById("headerInfo2")
+let loader = document.getElementById("loader-id")
+const body = document.querySelector("body");
 function getParam () {
     var param = window.location.href.substring(1).split("?");
     circuit = param[1];
@@ -14,7 +18,7 @@ function createDrivers () {
         driver.className = "driver-self";
         driver.style.background = "white";
         driver.onclick = function () {
-            if (this.style.background == "white"){
+            if (this.style.background === "white"){
                 this.style.background = "grey";
                 driverSelected.push(this);
             }
@@ -59,7 +63,17 @@ function selectSession () {
 }
 
 async function buttonClicked () {
-    let url = "https://formula1-response.azurewebsites.net/Laps";
+    let url = "http://127.0.0.1:5000/Laps";
+    alreadyDrivers = document.getElementById("laps-box");
+    if (alreadyDrivers.children.length != 0) {
+        while (alreadyDrivers.firstElementChild != null){
+            alreadyDrivers.firstElementChild.remove();
+        }
+        body.appendChild(headerInfo1)
+        body.appendChild(headerInfo2)
+        headerInfo1.style.display = "none";
+        headerInfo2.style.display = "none";
+    }
     error = document.getElementById("error")
     if (driverSelected.length == 0 || driverSelected.length > 2 || sessionSelected == null) {
         error.style.visibility = "visible";
@@ -68,6 +82,7 @@ async function buttonClicked () {
         }, 1000)
     }
     else{
+        loader.style.display = "block";
         let data = {};
         for (let i=0; i<driverSelected.length; i++) {
             data[i] = String(driverSelected[i].id);
@@ -80,9 +95,9 @@ async function buttonClicked () {
         }).then(res => {
             return res.json();
         }).then(cas => {
-            for (var i=0; i<cas.data.length; i++) {
+            loader.style.display = "none";
+            for (var i=0; i<driverSelected.length; i++) {
                 createTable(cas.data[i], i);
-                console.log("hey");
             }
         });
     }

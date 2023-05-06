@@ -1,6 +1,6 @@
 let year = 2023;
 
-let nextEventDate;
+//let nextEventDate;
 
 async function fetchNextRace(){
     let gp_name = document.getElementById("gp-name");
@@ -10,7 +10,7 @@ async function fetchNextRace(){
     let fp3 = document.getElementById("fp3")
     let q = document.getElementById("q")
     let r = document.getElementById("r")
-    let url = "https://formula1-response.azurewebsites.net/Schedule";
+    let url = "http://127.0.0.1:5000/Schedule";
     let response = await fetch(url);
     let data = await response.json();
     gp_name.innerHTML = "Next GP: " + data.data["name"];
@@ -20,7 +20,8 @@ async function fetchNextRace(){
     fp3.innerHTML = data.data["fp3"];
     q.innerHTML = data.data["q"];
     r.innerHTML = data.data["r"];
-    nextEventDate = data.data["closes_date"];
+    //nextEventDate = data.data["closes_date"];
+    return data.data["closes_date"];
 }
 
 async function getDriverStanding () {
@@ -104,7 +105,7 @@ async function getConstrStanding () {
     }
 }
 
-function countDown() {
+function countDown(nextEventDate) {
     let today = new Date();
     today.setMonth(today.getMonth() + 1)
     let eventDate = new Date(nextEventDate.split(" ")[0].split("-")[0], nextEventDate.split(" ")[0].split("-")[1],
@@ -133,7 +134,11 @@ function countDown() {
     }
 }
 
-setInterval(countDown, 1000)
-fetchNextRace();
+fetchNextRace().then((nextEventDate) =>{
+    setInterval(() => {
+        countDown(nextEventDate);
+    }, 1000);
+});
+
 getDriverStanding();
 getConstrStanding();
