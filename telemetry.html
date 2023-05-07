@@ -17,13 +17,16 @@
         <a href="telemetry.html">Nerd Place</a>
     </div>
 </div>
+<div class="compare">
+    TELEMETRY COMPARE
+</div>
 <div class="driver-menu">
-    <label class="label">Select a Driver: </label>
-    <select class="selection" name="drivers" id="driver-select">
+    <label class="label">Select a First Driver: </label>
+    <select class="selection" name="drivers" id="driver-select1">
         <option value="HAM"> HAM</option>
         <option value="VER"> VER</option>
         <option value="LEC"> LEC</option>
-        <option value="VER"> VER</option>
+        <option value="DEV"> DEV</option>
         <option value="PER"> PER</option>
         <option value="SAI"> SAI</option>
         <option value="ALO"> ALO</option>
@@ -41,14 +44,50 @@
         <option value="PIA"> PIA</option>
         <option value="TSU"> TSU</option>
     </select>
+    <label class="label">Select a Second Driver: </label>
+    <select class="selection" name="drivers" id="driver-select2">
+        <option value="HAM"> HAM</option>
+        <option value="VER"> VER</option>
+        <option value="LEC"> LEC</option>
+        <option value="DEV"> DEV</option>
+        <option value="PER"> PER</option>
+        <option value="SAI"> SAI</option>
+        <option value="ALO"> ALO</option>
+        <option value="STR"> STR</option>
+        <option value="RUS"> RUS</option>
+        <option value="OCO"> OCO</option>
+        <option value="GAS"> GAS</option>
+        <option value="ALB"> ALB</option>
+        <option value="SAR"> SAR</option>
+        <option value="MAG"> MAG</option>
+        <option value="HUL"> HUL</option>
+        <option value="BOT"> BOT</option>
+        <option value="ZHO"> ZHO</option>
+        <option value="NOR"> NOR</option>
+        <option value="PIA"> PIA</option>
+        <option value="TSU"> TSU</option>
+    </select>
+    <label class="label">Select a Session: </label>
+    <select class="selection" name="race" id="session-select">
+        <option value="FP1"> FP1</option>
+        <option value="FP2"> FP2</option>
+        <option value="FP3"> FP3</option>
+        <option value="Q"> Q</option>
+        <option value="R"> R</option>
+    </select>
     <label class="label">Select a Race: </label>
     <select class="selection" name="race" id="race-select">
         <option value="1"> Bahrain</option>
         <option value="2"> Arabia</option>
         <option value="3"> Australia</option>
-        <option value="4"> Baku</option>
+        <option value="5"> Miami</option>
     </select>
 </div>
+<button class="button-click" id="button-telemetry" type="button" onclick="getTelemetry()">
+    Get Telemetry
+</button>
+<div class="loader" id="loader-id" style="display: none"></div>
+<img id="telemetry-img"/>
 </body>
 <script src='src/telemetry.js'></script>
 </html>
