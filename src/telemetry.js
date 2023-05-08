@@ -22,7 +22,7 @@ function getTelemetry() {
         session: sessionValue,
         race: Number(raceValue),
     }
-    let url = "http://127.0.0.1:5000/Telemetry";
+    let url = "https://formula1-response.azurewebsites.net/Telemetry";
     loader.style.display = "block";
     fetch(url, {
         method: "POST",
