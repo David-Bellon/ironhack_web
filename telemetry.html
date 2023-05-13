@@ -88,6 +88,93 @@
 </button>
 <div class="loader" id="loader-id" style="display: none"></div>
 <img id="telemetry-img"/>
+
+<div class="compare">
+    RACE PACE COMPARISON
+</div>
+<div class="driver-menu">
+    <label class="label">Select a First Driver: </label>
+    <select class="selection" name="drivers" id="driver1">
+        <option value="HAM"> HAM</option>
+        <option value="VER"> VER</option>
+        <option value="LEC"> LEC</option>
+        <option value="DEV"> DEV</option>
+        <option value="PER"> PER</option>
+        <option value="SAI"> SAI</option>
+        <option value="ALO"> ALO</option>
+        <option value="STR"> STR</option>
+        <option value="RUS"> RUS</option>
+        <option value="OCO"> OCO</option>
+        <option value="GAS"> GAS</option>
+        <option value="ALB"> ALB</option>
+        <option value="SAR"> SAR</option>
+        <option value="MAG"> MAG</option>
+        <option value="HUL"> HUL</option>
+        <option value="BOT"> BOT</option>
+        <option value="ZHO"> ZHO</option>
+        <option value="NOR"> NOR</option>
+        <option value="PIA"> PIA</option>
+        <option value="TSU"> TSU</option>
+    </select>
+    <label class="label">Select a Second Driver: </label>
+    <select class="selection" name="drivers" id="driver2">
+        <option value="HAM"> HAM</option>
+        <option value="VER"> VER</option>
+        <option value="LEC"> LEC</option>
+        <option value="DEV"> DEV</option>
+        <option value="PER"> PER</option>
+        <option value="SAI"> SAI</option>
+        <option value="ALO"> ALO</option>
+        <option value="STR"> STR</option>
+        <option value="RUS"> RUS</option>
+        <option value="OCO"> OCO</option>
+        <option value="GAS"> GAS</option>
+        <option value="ALB"> ALB</option>
+        <option value="SAR"> SAR</option>
+        <option value="MAG"> MAG</option>
+        <option value="HUL"> HUL</option>
+        <option value="BOT"> BOT</option>
+        <option value="ZHO"> ZHO</option>
+        <option value="NOR"> NOR</option>
+        <option value="PIA"> PIA</option>
+        <option value="TSU"> TSU</option>
+    </select>
+    <label class="label">Select a Third Driver: </label>
+    <select class="selection" name="drivers" id="driver3">
+        <option value="HAM"> HAM</option>
+        <option value="VER"> VER</option>
+        <option value="LEC"> LEC</option>
+        <option value="DEV"> DEV</option>
+        <option value="PER"> PER</option>
+        <option value="SAI"> SAI</option>
+        <option value="ALO"> ALO</option>
+        <option value="STR"> STR</option>
+        <option value="RUS"> RUS</option>
+        <option value="OCO"> OCO</option>
+        <option value="GAS"> GAS</option>
+        <option value="ALB"> ALB</option>
+        <option value="SAR"> SAR</option>
+        <option value="MAG"> MAG</option>
+        <option value="HUL"> HUL</option>
+        <option value="BOT"> BOT</option>
+        <option value="ZHO"> ZHO</option>
+        <option value="NOR"> NOR</option>
+        <option value="PIA"> PIA</option>
+        <option value="TSU"> TSU</option>
+    </select>
+    <label class="label">Select a Race: </label>
+    <select class="selection" name="race" id="racePace-select">
+        <option value="1"> Bahrain</option>
+        <option value="2"> Arabia</option>
+        <option value="3"> Australia</option>
+        <option value="5"> Miami</option>
+    </select>
+</div>
+<button class="button-click" id="button-pace" type="button" onclick="getPace()">
+    Get Telemetry
+</button>
+<div class="loader" id="loaderPace-id" style="display: none"></div>
+<img id="pace-img"/>
 </body>
 <script src='src/telemetry.js'></script>
 </html>

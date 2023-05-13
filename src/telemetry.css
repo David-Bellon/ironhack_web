@@ -89,7 +89,7 @@ option {
     margin-top: 125px;
 }
 
-#button-telemetry {
+.button-click {
     width: 250px;
     height: 90px;
     font-size: 24px;
@@ -106,7 +106,7 @@ option {
     margin-top: 30px;
 }
 
-#button-telemetry:active {
+.button-click:active {
     background-color: #c5c5c5;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
@@ -131,4 +131,9 @@ option {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+#pace-img {
+    margin-top: 15px;
+    margin-left: 10%;
 }
